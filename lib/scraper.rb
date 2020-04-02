@@ -31,7 +31,7 @@ class Scraper
     all_social_urls = social.collect { |o| o.attributes["href"].value }
 
     profile_hash = {}
-    
+
     # searches through array of social urls and assigns to correct variable
     all_social_urls.each do |u|
       if u.include?("twitter")
