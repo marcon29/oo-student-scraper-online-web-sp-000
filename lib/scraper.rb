@@ -30,32 +30,20 @@ class Scraper
     # searches through social icon container and returns array of all social urls
     all_social_urls = social.collect { |o| o.attributes["href"].value }
 
-    twitter = ""
-    linkedin = ""
-    github = ""
-    blog = ""
-
+    profile_hash = {}
+    
     # searches through array of social urls and assigns to correct variable
     all_social_urls.each do |u|
       if u.include?("twitter")
-        twitter = u
+        profile_hash[:twitter] = u
       elsif u.include?("linkedin")
-        linkedin = u
+        profile_hash[:linkedin] = u
       elsif u.include?("github")
-        github = u
+        profile_hash[:github] = u
       else
-        blog = u
+        profile_hash[:blog] = u
       end
     end
-
-    # builds hash with social urls and other profile info
-    profile_hash = {
-      twitter: twitter,
-      linkedin: linkedin,
-      github: github,
-      blog: blog,
-      profile_quote: doc.css(".profile-quote").text,
-      bio: doc.css(".description-holder p").text
-    }
+    profile_hash
   end
 end
