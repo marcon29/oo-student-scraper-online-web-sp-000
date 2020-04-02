@@ -58,5 +58,4 @@ class Scraper
       bio: doc.css(".description-holder p").text
     }
   end
-
 end
