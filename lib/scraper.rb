@@ -26,7 +26,11 @@ class Scraper
     # each student hash contains name, location, profile url
     # profile url will be used for 2nd scrape to get student details
 
+    # "https://learn-co-curriculum.github.io/student-scraper-test-page/students/ryan-johnson.html"
+    # "students/ryan-johnson.html"
   def self.scrape_profile_page(profile_url)
+    doc = Nokogiri::HTML(open(profile_url))
+    cards = doc.css(".student-card")
 
   end
 
