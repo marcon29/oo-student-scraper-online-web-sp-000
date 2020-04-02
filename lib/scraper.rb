@@ -32,6 +32,10 @@ class Scraper
     doc = Nokogiri::HTML(open(profile_url))
     cards = doc.css(".student-card")
 
+    # scrape profile page
+    # return hash with several links, a quote, and a bio
+    # links vary by profile - need to be optional
+
   end
 
 end
