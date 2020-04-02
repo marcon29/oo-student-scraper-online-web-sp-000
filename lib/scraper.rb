@@ -29,6 +29,23 @@ class Scraper
 
     all_social_urls = social.collect { |o| o.attributes["href"].value }
 
+    twitter = ""
+    linkedin = ""
+    github = ""
+    blog = ""
+    
+    all_social_urls.each do |u|
+      if u.include?("twitter")
+        twitter = u
+      elsif u.include?("linkedin")
+        linkedin = u
+      elsif u.include?("github")
+        github = u
+      else
+        blog = u
+      end
+    end
+
     # scrape profile page
     # return hash with several links, a quote, and a bio
     # links vary by profile - not all have, different order
