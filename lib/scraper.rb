@@ -46,10 +46,14 @@ class Scraper
       end
     end
 
-    # scrape profile page
-    # return hash with several links, a quote, and a bio
-    # links vary by profile - not all have, different order
-
+    profile_hash = {
+      twitter: twitter,
+      linkedin: linkedin,
+      github: github,
+      blog: blog,
+      profile_quote: doc.css(".profile-quote").text,
+      bio: doc.css(".description-holder p").text
+    }
   end
 
 end
