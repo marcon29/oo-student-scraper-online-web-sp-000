@@ -25,7 +25,9 @@ class Scraper
     # "students/ryan-johnson.html"
   def self.scrape_profile_page(profile_url)
     doc = Nokogiri::HTML(open(profile_url))
-    cards = doc.css(".student-card")
+    social = doc.css(".social-icon-container a")
+
+    all_social_urls = social.collect { |o| o.attributes["href"].value }
 
     # scrape profile page
     # return hash with several links, a quote, and a bio
