@@ -29,7 +29,7 @@ class Scraper
 
     # scrape profile page
     # return hash with several links, a quote, and a bio
-    # links vary by profile - need to be optional
+    # links vary by profile - not all have, different order
 
   end
 
