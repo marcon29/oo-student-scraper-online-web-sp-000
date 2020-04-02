@@ -27,6 +27,7 @@ class Scraper
     doc = Nokogiri::HTML(open(profile_url))
     social = doc.css(".social-icon-container a")
 
+    # searches through social icon container and returns array of all social urls
     all_social_urls = social.collect { |o| o.attributes["href"].value }
 
     twitter = ""
@@ -34,6 +35,7 @@ class Scraper
     github = ""
     blog = ""
 
+    # searches through array of social urls and assigns to correct variable
     all_social_urls.each do |u|
       if u.include?("twitter")
         twitter = u
@@ -46,6 +48,7 @@ class Scraper
       end
     end
 
+    # builds hash with social urls and other profile info
     profile_hash = {
       twitter: twitter,
       linkedin: linkedin,
