@@ -4,16 +4,21 @@ require 'pry'
 
 class Scraper
 
+  # "https://learn-co-curriculum.github.io/student-scraper-test-page/index"
   def self.scrape_index_page(index_url)
-    doc = Nokogiri::HTML(open("https://learn-co-curriculum.github.io/student-scraper-test-page/index"))
+    doc = Nokogiri::HTML(open(index_url))
     cards = doc.css(".student-card")
+
     index_array = []
+
     cards.each do |c|
       index_array <<
       {name: c.children[1].children[3].children[1].text,
       location: c.children[1].children[3].children[3].text,
       profile_url: c.children[1].attributes["href"].value}
     end
+
+    index_array
   end
 
     # scrape index page
