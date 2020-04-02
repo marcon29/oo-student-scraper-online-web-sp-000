@@ -33,7 +33,7 @@ class Scraper
     linkedin = ""
     github = ""
     blog = ""
-    
+
     all_social_urls.each do |u|
       if u.include?("twitter")
         twitter = u
