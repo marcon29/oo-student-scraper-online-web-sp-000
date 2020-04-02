@@ -44,6 +44,8 @@ class Scraper
         profile_hash[:blog] = u
       end
     end
+    profile_hash[:profile_quote] = doc.css(".profile-quote").text
+    profile_hash[:bio] = doc.css(".description-holder p").text
     profile_hash
   end
 end
