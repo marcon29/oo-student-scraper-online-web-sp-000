@@ -9,7 +9,7 @@ class Scraper
     cards = doc.css(".student-card")
     index_array = []
     cards.each do |c|
-      index_array << 
+      index_array <<
       {name: c.children[1].children[3].children[1].text,
       location: c.children[1].children[3].children[3].text,
       profile_url: c.children[1].attributes["href"].value}
