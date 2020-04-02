@@ -21,11 +21,6 @@ class Scraper
     index_array
   end
 
-    # scrape index page
-    # return array of hashes, each hash is one student
-    # each student hash contains name, location, profile url
-    # profile url will be used for 2nd scrape to get student details
-
     # "https://learn-co-curriculum.github.io/student-scraper-test-page/students/ryan-johnson.html"
     # "students/ryan-johnson.html"
   def self.scrape_profile_page(profile_url)
